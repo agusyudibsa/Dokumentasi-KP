@@ -1,0 +1,8 @@
+#how to using github
+
+-inisialisai
+	->git init
+-git add "nama-filenya" <- file harus berada di dalam repo local yang sudah di clone di awal
+-git commit "nama-file" -m "pesan-commit"
+-git push origin master
+	->masukan username anda password github anda.
