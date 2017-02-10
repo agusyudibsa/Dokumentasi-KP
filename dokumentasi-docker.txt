@@ -1,0 +1,54 @@
+//install docker
+-sudo apt-get update
+-sudo apt-get -y install docker-engine
+-apt-cache madison docker-engine
+-sudo docker run hello-world <- jika berhasil maka pada tahap ini akan muncul 'hello from docker'
+
+
+//buat project dengan laradock
+-mkdir projek <- buat folder 'projek' <- bebas
+-cd projek
+-sudo pip install virtualenv <- install virtualenv 'jika gagal kemungkinan harus install 'pip' caranya kurang tau'
+-virtualenv venv
+-source venv/bin/activate <- mengaktifkan venv 'akan ada muncul tulisan 'venv' didalam kurang'
+-pip install docker-compose <- install docker-compose di dalam venv
+	-git clone https://github.com/Laradock/laradock.git <- mengambil data laradock
+	-cd laradock <- masuk ke folder laradock
+	-docker-compose up -d nginx mysql 
+		->'jika gagal maka kita harus membuat user group caranya :'
+			->sudo usermod -a -G docker ari <-buat grub ari adalah nama user ubuntu
+			->jalankan lagi 'docker-compose up -d nginx mysql'
+			->'jika masih erorr' matikan 'apache2 dan mysql' dengan cara:
+				->sudo /etc/init.d/apache2 stop
+				->sudo /etc/init.d/mysql stop
+			->jalankan lagi 'docker-compose up -d nginx mysql'
+		->coba 'localhost'
+
+//catatan
+	-sudo systemctl start docker <- mengaktifkan docker
+	-docker run hello-world <- cek docker
+	
+//database
+-sudo apt-get install mysql-workbench
+-buka mysql-workbench <- didalam start menu
+-klik langsung local instance
+-password 'root'
+-buat database baru 'klil gambar tabung pada toolbar'
+-buat nama DB misal: 'laracoy'
+-setting pada didalam project file '.env' biasanya terhidden <- buka hidden 'ctrl-h'
+	-> 	DB_CONNECTION=mysql
+		DB_HOST=mysql
+		DB_PORT=3306
+		DB_DATABASE=laracoy
+		DB_USERNAME=root
+		DB_PASSWORD=root
+-'docker-compose exec workspace bash'
+-migration DB 'php artisan migrate'
+
+//catatan
+-matikan apache dan mysql
+-cd /project/
+-source venv/bin/activate
+-cd /laradock/
+-docker-compose up -d nginx mysql 
+
