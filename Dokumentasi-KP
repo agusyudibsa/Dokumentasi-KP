@@ -1,0 +1,20 @@
+#install
+
+-pastikan docker-compose sudah terinstal
+-mengambil data dari gitlab dengan smartgit
+	->https://gitlab.com/afridianhafid/sales-system.git
+-menginstal image project
+	->buka project 'sales-system'
+		->cd sales-system/
+	->run './docker-run.sh up'
+	->waiting to finish
+	->run './laravel-cli.sh'
+	->waiting to finish
+	->impala:/srv/web$ 'composer install'
+	->waiting to finish
+	->rubah file .env didalam '/sales-system/src/' 
+		->terdapat file .env.example -> copas aja rubah menjadi '.env' examplenya di hapus
+		->copas di folder yang sama
+	->coba running localhost on browser
+
+#kelompok 1 - sales-system
