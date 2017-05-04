@@ -1,2 +1,2 @@
 # Dokumentasi-KP
-Membuat Dokumentasi, Biar tidak lupa
+Membuat Dokumentasi biar tidak lupa, karena dokumentasi itu sangat penting.
